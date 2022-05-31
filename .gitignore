@@ -1,2 +1,3 @@
 build/
-oto.egg-info/
+__pycache__/
+*\.egg*
