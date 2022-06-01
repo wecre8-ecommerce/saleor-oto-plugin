@@ -1,6 +1,6 @@
 import requests
 
-from saleor.plugins.oto.utils import SingletonMeta
+from oto.utils import SingletonMeta
 
 
 class OTOApiClient(metaclass=SingletonMeta):
