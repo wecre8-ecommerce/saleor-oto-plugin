@@ -65,9 +65,9 @@ def generate_create_order_data(fulfillment):
     )
     data = {
         "storeName": "WeCre8",
-        "ref1": fulfillment.order.token,
         "shippingAmount": shipping_amount,
         "currency": fulfillment.order.currency,
+        "ref1": fulfillment.order.checkout_token,
         "shippingNotes": fulfillment.order.customer_note,
         "payment_method": "cod" if is_cod_order else "paid",
         "orderId": get_oto_order_id(fulfillment=fulfillment),
@@ -83,9 +83,9 @@ def generate_create_order_data(fulfillment):
         ),
         "orderDate": "%s %s:%s"
         % (
-            str(fulfillment.created.date().strftime("%d/%m/%Y")),
-            str(fulfillment.created.hour),
-            str(fulfillment.created.minute),
+            str(fulfillment.created_at.date().strftime("%d/%m/%Y")),
+            str(fulfillment.created_at.hour),
+            str(fulfillment.created_at.minute),
         ),
     }
     return data
